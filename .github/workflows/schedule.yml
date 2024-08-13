@@ -1,14 +1,10 @@
 on:
   schedule:
-    - cron: '35 0 13 * *'
-    - cron: '36 0 13 * *'
+    - cron: '*/2 * 13 * *'
 
 jobs:
   test_schedule:
     runs-on: ubuntu-latest
     steps:
-      - name: Not on Monday or Wednesday
-        if: github.event.schedule != '35 0 13 * *'
+      - name: Echo current time
         run: echo "Não eh em 35"
-      - name: Every time
-        run: echo "Eh 35"
