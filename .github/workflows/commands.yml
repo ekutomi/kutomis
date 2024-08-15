@@ -1,0 +1,14 @@
+name: Workflow-commands
+on: [push]
+jobs:
+    my-job:
+        run-on: ubuntu-latest
+        steps:
+            - name: "group logging"
+            run: |
+                echo "::group::My group message"
+                echo "REF: $GITHUB_REF"
+                echo "Job ID: $GITHUB_JOB"
+                echo "Action: $GITHUB_ACTION"
+                echo "Actor: $GITHUB_ACTOR"
+                echo "::endgroup::"
