@@ -4,7 +4,7 @@ jobs:
     my-job:
         runs-on: ubuntu-latest
         steps:
-            - name: "group logging"
+            - name: "Step 1 - group logging"
               run: |
                     echo "::group::My group message"
                     echo "REF: $GITHUB_REF"
@@ -12,3 +12,7 @@ jobs:
                     echo "Action: $GITHUB_ACTION"
                     echo "Actor: $GITHUB_ACTOR"
                     echo "::endgroup::"
+            - name: "Step 2 - setting environment variable"
+              run: echo "MY_VAL=hello" >> $GITHUB_ENV
+            - name: "Step 3 - reading environment variable"
+              run: echo $MY_VAL  
