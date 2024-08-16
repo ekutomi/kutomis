@@ -1,0 +1,12 @@
+name: My test
+
+on: [push]
+
+jobs:
+    setup-and-use-env:
+        runs-on: ubuntu-latest
+        steps:
+            - name: setting a variable
+              run: echo "DYNAMIC_VAR=My dynakic var" >> $GITHUB_ENV
+            - name: using a variable
+              run: echo "the value of DYNAMIC_VAR IS $DYNAMIC_VAR"
